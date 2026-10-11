@@ -10,17 +10,21 @@
 <meta property="og:site_name" content="Warehouse West Event Collective">
 <meta property="og:title" content="Warehouse West Event Collective · St. Louis Event Venue">
 <meta property="og:description" content="Book one side for $500, both sides for $750–$800, or the Upstairs for $1,000. 1397 Hamilton Ave, St. Louis.">
-<meta property="og:image" content="og-image.jpg">
+<link rel="canonical" href="https://knr315.github.io/warehouse-west-site/">
+<meta property="og:url" content="https://knr315.github.io/warehouse-west-site/">
+<meta property="og:image" content="https://knr315.github.io/warehouse-west-site/og-image.jpg">
+<meta property="og:image:alt" content="Warehouse West Event Collective in St. Louis">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://knr315.github.io/warehouse-west-site/og-image.jpg">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="img/night.jpg" as="image">
 <link rel="preload" href="fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "EventVenue", "name": "Warehouse West Event Collective", "address": {"@type": "PostalAddress", "streetAddress": "1397 Hamilton Ave", "addressLocality": "St. Louis", "addressRegion": "MO", "postalCode": "63112", "addressCountry": "US"}, "telephone": "+1-314-578-2910", "email": "Warehousewest@icloud.com", "priceRange": "$500–$1,000", "image": "og-image.jpg", "sameAs": ["https://instagram.com/warehouseweststl"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "EventVenue", "name": "Warehouse West Event Collective", "address": {"@type": "PostalAddress", "streetAddress": "1397 Hamilton Ave", "addressLocality": "St. Louis", "addressRegion": "MO", "postalCode": "63112", "addressCountry": "US"}, "telephone": "+1-314-578-2910", "email": "Warehousewest@icloud.com", "priceRange": "$500–$1,000", "url": "https://knr315.github.io/warehouse-west-site/", "image": "https://knr315.github.io/warehouse-west-site/og-image.jpg", "sameAs": ["https://instagram.com/warehouseweststl"]}</script>
 <style>
 @font-face{font-family:"Big Shoulders Display";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/big-shoulders-display-latin-800-normal.woff2) format("woff2")}
 @font-face{font-family:"Big Shoulders Display";font-style:normal;font-weight:900;font-display:swap;src:url(fonts/big-shoulders-display-latin-900-normal.woff2) format("woff2")}
@@ -408,8 +412,8 @@ main{padding-top:calc(var(--nav) + env(safe-area-inset-top,0px))}
             <h3>Tell us about it</h3>
             <div class="fields">
               <div class="f full"><label for="fType">Event type</label><select id="fType"></select></div>
-              <div class="f"><label for="fDate">Date</label><input type="date" id="fDate" required><span class="err">Pick a date from today on.</span></div>
-              <div class="f"><label for="fTime">Start time</label><select id="fTime"></select></div>
+              <div class="f"><label for="fDate">Date</label><input type="date" id="fDate" required aria-describedby="fDateErr"><span class="err" id="fDateErr">Pick a date from today on.</span></div>
+              <div class="f"><label for="fTime">Start time (St. Louis)</label><select id="fTime"></select></div>
               <div class="f"><label for="fGuests">Expected guests</label><select id="fGuests"><option>Under 25</option><option selected>25 – 50</option><option>50 – 100</option><option>100 – 150</option><option>150+</option></select></div>
               <div class="f"><label for="fFlex">Date flexible?</label><select id="fFlex"><option>No, this date only</option><option>Yes, within a week or two</option></select></div>
             </div>
@@ -419,11 +423,12 @@ main{padding-top:calc(var(--nav) + env(safe-area-inset-top,0px))}
           <div class="step" data-step="3" hidden>
             <h3>How do we reach you?</h3>
             <div class="fields">
-              <div class="f"><label for="fName">Full name</label><input id="fName" autocomplete="name" placeholder="Jordan Ellis"><span class="err">Add your name.</span></div>
-              <div class="f"><label for="fPhone">Phone</label><input id="fPhone" type="tel" autocomplete="tel" placeholder="(314) 555-0123"><span class="err">Add a 10-digit phone number.</span></div>
-              <div class="f full"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" placeholder="you@email.com"><span class="err">Enter an email like name@email.com.</span></div>
+              <div class="f"><label for="fName">Full name</label><input id="fName" required aria-describedby="fNameErr" autocomplete="name" placeholder="Jordan Ellis"><span class="err" id="fNameErr">Add your name.</span></div>
+              <div class="f"><label for="fPhone">Phone</label><input id="fPhone" type="tel" required aria-describedby="fPhoneErr" autocomplete="tel" placeholder="(314) 555-0123"><span class="err" id="fPhoneErr">Add a 10-digit US phone number (optional +1).</span></div>
+              <div class="f full"><label for="fEmail">Email</label><input id="fEmail" type="email" required aria-describedby="fEmailErr" autocomplete="email" placeholder="you@email.com"><span class="err" id="fEmailErr">Enter an email like name@email.com.</span></div>
               <div class="f full"><label for="fMsg">Anything else? (optional)</label><textarea id="fMsg" placeholder="The vibe, vendors you're bringing, questions for us."></textarea></div>
             </div>
+            <p class="sub" style="font-size:13px">Your contact details and request are sent to our bookings inbox through FormSubmit.</p>
             <div class="nav-row"><button class="btn btn-ghost" type="button" data-back>← Back</button><button class="btn btn-gold" type="submit" id="send">Send request →</button></div>
           </div>
         </form>
@@ -559,7 +564,7 @@ const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAl
 const sp = id => SPACES.find(s => s.id === id);
 const pad = n => String(n).padStart(2,"0");
 const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
-const today = new Date(); today.setHours(0,0,0,0);
+const todayISO = () => iso(new Date());
 const tl = h => { const b = Math.floor(h), m = h % 1 ? "30" : "00"; return `${b % 12 || 12}:${m} ${b >= 12 && b < 24 ? "PM" : "AM"}`; };
 const longDate = v => { if (!v) return "—"; const [y,m,d] = v.split("-").map(Number); return new Date(y,m-1,d).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"}); };
 function toast(t){ const el = $("#toast"); el.textContent = t; el.classList.add("on"); clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove("on"), 2000); }
@@ -596,7 +601,10 @@ $("#seg").innerHTML = SPACES.map(s => `<button type="button" data-zone="${s.id}"
 let detailSpace = null;
 function setZone(id){
   const s = sp(id);
-  $$(".zone").forEach(z => z.classList.toggle("on", id === "both" ? ["bar","stage"].includes(z.dataset.zone) : z.dataset.zone === id));
+  $$(".zone").forEach(z => {
+    const selected = id === "both" ? ["bar","stage"].includes(z.dataset.zone) : z.dataset.zone === id;
+    z.classList.toggle("on", selected); z.setAttribute("aria-pressed", selected);
+  });
   $$("#seg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.zone === id));
   if (detailSpace === id) return; detailSpace = id;
   const img = $("#dImg"); img.classList.add("fade");
@@ -626,11 +634,17 @@ function renderEvents(){
 $("#fType").innerHTML = EVENTS.map(e => `<option>${e.name}</option>`).join("");
 const times = []; for (let h = 9; h <= 22; h += .5) times.push(`<option value="${h}"${h === 19 ? " selected" : ""}>${tl(h)}</option>`);
 $("#fTime").innerHTML = times.join("");
-$("#fDate").min = iso(today);
+$("#fDate").min = todayISO();
 $("#pick").innerHTML = SPACES.map(s => `
   <button class="opt" type="button" data-space="${s.id}"><img src="${s.img}" alt=""><span><b>${s.name}</b><small>${s.price}</small></span></button>`).join("");
 
-function pickSpace(id, jump){ S.space = id; syncSum(); if (jump){ setStep(2); go("book"); } }
+function pickSpace(id, jump){
+  S.space = id; syncSum();
+  if (jump){
+    $("#done").hidden = true; $("#fallback").hidden = true; $("#bookWrap").hidden = false;
+    setStep(2); go("book");
+  }
+}
 function setStep(n){
   S.step = n;
   $$("[data-step]").forEach(s => s.hidden = Number(s.dataset.step) !== n);
@@ -646,18 +660,26 @@ function syncSum(){
 }
 ["#fType","#fDate","#fTime","#fGuests"].forEach(s => $(s).addEventListener("change", syncSum));
 
-function check(sel, ok){ $(sel).closest(".f").classList.toggle("bad", !ok); return ok; }
+function check(sel, ok){
+  $(sel).closest(".f").classList.toggle("bad", !ok);
+  $(sel).setAttribute("aria-invalid", !ok); return ok;
+}
 function validStep(n){
-  if (n === 2) return check("#fDate", !!$("#fDate").value && $("#fDate").value >= iso(today));
+  if (n === 2){
+    $("#fDate").min = todayISO();
+    return check("#fDate", !!$("#fDate").value && $("#fDate").checkValidity());
+  }
   if (n === 3){
     const a = check("#fName", $("#fName").value.trim().length > 1);
-    const b = check("#fPhone", $("#fPhone").value.replace(/\D/g,"").length >= 10);
+    const b = check("#fPhone", /^(?:1)?\d{10}$/.test($("#fPhone").value.replace(/\D/g,"")));
     const c = check("#fEmail", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($("#fEmail").value.trim()));
     return a && b && c;
   }
   return true;
 }
-$$(".f input").forEach(i => i.addEventListener("input", () => i.closest(".f").classList.remove("bad")));
+$$(".f input").forEach(i => i.addEventListener("input", () => {
+  i.closest(".f").classList.remove("bad"); i.removeAttribute("aria-invalid");
+}));
 
 document.addEventListener("click", e => {
   const t = e.target.closest("[data-zone],[data-pick],[data-space],[data-group],[data-event],[data-next],[data-back],[data-goto],[data-copy],[data-info]");
@@ -669,7 +691,11 @@ document.addEventListener("click", e => {
   else if (t.dataset.event){ const ev = EVENTS.find(x => x.name === t.dataset.event); $("#fType").value = ev.name; pickSpace(ev.space, true); }
   else if ("next" in t.dataset){ if (validStep(S.step)) setStep(S.step + 1); }
   else if ("back" in t.dataset) setStep(S.step - 1);
-  else if (t.dataset.goto && !t.disabled) setStep(Number(t.dataset.goto));
+  else if (t.dataset.goto && !t.disabled){
+    const next = Number(t.dataset.goto);
+    if (next <= S.step || validStep(S.step)) setStep(next);
+    else $(".f.bad input").focus();
+  }
   else if (t.dataset.copy) copy($("#" + t.dataset.copy).textContent);
   else if (t.dataset.info){
     $$("#infoTabs .chip").forEach(c => c.setAttribute("aria-pressed", c === t));
@@ -679,9 +705,11 @@ document.addEventListener("click", e => {
 
 $("#form").addEventListener("submit", async e => {
   e.preventDefault();
+  if ($("#send").disabled) return;
   if (S.step !== 3) { if (validStep(S.step)) setStep(S.step + 1); return; }
   if ($("[name=_honey]").value) return;
-  if (!validStep(3)) { toast("Check the highlighted fields"); return; }
+  if (!validStep(2)) { setStep(2); $("#fDate").focus(); toast("Pick a date from today on"); return; }
+  if (!validStep(3)) { $(".f.bad input").focus(); toast("Check the highlighted fields"); return; }
   const s = sp(S.space);
   const data = {
     "Name": $("#fName").value.trim(),
@@ -698,19 +726,19 @@ $("#form").addEventListener("submit", async e => {
   const subject = `Booking request: ${data["Event type"]} · ${s.name} · ${data.Date}`;
   const text = Object.entries(data).map(([k,v]) => `${k}: ${v}`).join("\n");
   const btn = $("#send"); btn.disabled = true; btn.textContent = "Sending…";
+  $("#form").setAttribute("aria-busy", "true");
   let ok = false;
+  const c = new AbortController(); const tm = setTimeout(() => c.abort(), 12000);
   try {
-    const c = new AbortController(); const tm = setTimeout(() => c.abort(), 12000);
     const r = await fetch(CONFIG.endpoint, { method:"POST", headers:{ "Content-Type":"application/json", Accept:"application/json" },
       body: JSON.stringify({ ...data, _subject: subject, _replyto: data.Email, _template:"table", _captcha:"false" }), signal: c.signal });
-    clearTimeout(tm);
     const j = await r.json().catch(() => ({}));
     ok = r.ok && (j.success === true || j.success === "true");
-  } catch(err) {}
+  } catch(err) {} finally { clearTimeout(tm); $("#form").removeAttribute("aria-busy"); }
   btn.disabled = false; btn.textContent = "Send request →";
   $("#bookWrap").hidden = true;
   if (ok){
-    $("#doneMsg").textContent = `Thanks, ${data.Name.split(" ")[0]}. Your request for ${s.name} on ${data.Date} is in our inbox. We'll reply to ${data.Email} within 24 hours.`;
+    $("#doneMsg").textContent = `Thanks, ${data.Name.split(" ")[0]}. Your request for ${s.name} on ${data.Date} was submitted. We aim to reply to ${data.Email} within 24 hours. If you don't hear from us, please call ${CONFIG.phone}.`;
     $("#done").hidden = false;
   } else {
     $("#fbBody").textContent = `Subject: ${subject}\n\n${text}`;
@@ -719,7 +747,12 @@ $("#form").addEventListener("submit", async e => {
   }
   scrollTo(0, 0);
 });
-$("#again").onclick = () => { $("#done").hidden = true; $("#bookWrap").hidden = false; $("#form").reset(); setStep(1); syncSum(); };
+$("#again").onclick = () => {
+  $("#done").hidden = true; $("#bookWrap").hidden = false; $("#form").reset();
+  $$(".f.bad").forEach(f => f.classList.remove("bad"));
+  $$("[aria-invalid]").forEach(i => i.removeAttribute("aria-invalid"));
+  setStep(1); syncSum();
+};
 $("#fbBack").onclick = () => { $("#fallback").hidden = true; $("#bookWrap").hidden = false; };
 
 /* ======================= contact + boot ======================= */
