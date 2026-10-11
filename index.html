@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Warehouse West Event Collective</title>
+<meta name="description" content="Warehouse West Event Collective, 1397 Hamilton Ave, St. Louis. Book one side, the full floor, or the upstairs for your next event.">
+<meta name="theme-color" content="#0C0B11">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Warehouse West Event Collective">
+<meta property="og:title" content="Warehouse West Event Collective · St. Louis Event Venue">
+<meta property="og:description" content="Book one side for $500, both sides for $750–$800, or the Upstairs for $1,000. 1397 Hamilton Ave, St. Louis.">
+<meta property="og:image" content="og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="img/night.jpg" as="image">
+<link rel="preload" href="fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "EventVenue", "name": "Warehouse West Event Collective", "address": {"@type": "PostalAddress", "streetAddress": "1397 Hamilton Ave", "addressLocality": "St. Louis", "addressRegion": "MO", "postalCode": "63112", "addressCountry": "US"}, "telephone": "+1-314-578-2910", "email": "Warehousewest@icloud.com", "priceRange": "$500–$1,000", "image": "og-image.jpg", "sameAs": ["https://instagram.com/warehouseweststl"]}</script>
+<style>
+@font-face{font-family:"Big Shoulders Display";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/big-shoulders-display-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Big Shoulders Display";font-style:normal;font-weight:900;font-display:swap;src:url(fonts/big-shoulders-display-latin-900-normal.woff2) format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/hanken-grotesk-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/hanken-grotesk-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/hanken-grotesk-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/hanken-grotesk-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2")}
+
+/* Layout: app shell. One view on screen at a time (Home, Spaces, Events, Book, Info), switched from the top bar or a bottom tab bar on phones. Gold = brand, UV violet = the room's light, amber = the sconces out front. */
+:root{
+  color-scheme: dark;
+  --ink:#0C0B11; --ink-2:#14121C; --ink-3:#1D1A28;
+  --line:rgba(239,232,220,.12); --line-2:rgba(239,232,220,.24);
+  --bone:#EFE8DC; --mute:#A8A098; --dim:#706A74;
+  --gold:#D9B25A; --gold-2:#F0CF7E; --uv:#7A68FF; --uv-2:#A99DFF; --amber:#F2A93B; --err:#FF8A7A;
+  --f-display:"Big Shoulders Display","Oswald","Arial Narrow",Impact,sans-serif;
+  --f-serif:"Instrument Serif","Times New Roman",Georgia,serif;
+  --f-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --gut:clamp(16px,4vw,44px); --max:1240px; --nav:68px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--ink);color:var(--bone);font:16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+.eyebrow{font:500 11px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.display{font:900 clamp(44px,7vw,92px)/.86 var(--f-display);text-transform:uppercase}
+.display em{font:italic 400 .6em/1 var(--f-serif);color:var(--gold);text-transform:none}
+.sub{color:var(--mute);font-size:17px;max-width:54ch}
+.tab{font-variant-numeric:tabular-nums}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 22px;border-radius:999px;border:1px solid transparent;font:700 13px/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .15s,background .2s,border-color .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn-gold{background:var(--gold);color:#17120A}
+.btn-gold:hover{background:var(--gold-2)}
+.btn-ghost{border-color:var(--line-2);background:rgba(12,11,17,.4);backdrop-filter:blur(6px)}
+.btn-ghost:hover{border-color:var(--bone)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* ---------- Top bar ---------- */
+.top{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top,0px);background:rgba(12,11,17,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top-in{height:var(--nav);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;cursor:pointer}
+.mark{width:38px;height:38px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;font:900 14px/1 var(--f-display);color:var(--gold)}
+.brand b{display:block;font:800 18px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase}
+.brand small{display:block;font:400 9.5px/1.5 var(--f-mono);letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+.tabs{position:relative;display:flex;gap:2px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--ink-2)}
+.tabs a{position:relative;z-index:1;padding:9px 16px;border-radius:999px;text-decoration:none;font-size:14px;font-weight:600;color:var(--mute);transition:color .2s}
+.tabs a[aria-current="page"]{color:#17120A}
+.tabs a:hover:not([aria-current="page"]){color:var(--bone)}
+.pill{position:absolute;z-index:0;top:4px;bottom:4px;border-radius:999px;background:var(--gold);transition:left .35s cubic-bezier(.3,.8,.3,1),width .35s cubic-bezier(.3,.8,.3,1)}
+.top .btn{padding:12px 18px}
+@media (max-width:920px){.tabs,.top .btn{display:none}}
+
+/* ---------- Bottom tab bar (phones) ---------- */
+.dock{position:fixed;inset:auto 0 0;z-index:50;display:none;grid-template-columns:repeat(5,1fr);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));background:rgba(12,11,17,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.dock a{display:grid;justify-items:center;gap:3px;padding:7px 0;text-decoration:none;font-size:11px;font-weight:600;color:var(--dim);border-radius:12px}
+.dock svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.dock a[aria-current="page"]{color:var(--gold)}
+.dock a.book{color:#17120A;background:var(--gold);margin:0 4px}
+.dock a.book[aria-current="page"]{color:#17120A;background:var(--gold-2)}
+@media (max-width:920px){.dock{display:grid}main{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}}
+
+/* ---------- Views ---------- */
+main{padding-top:calc(var(--nav) + env(safe-area-inset-top,0px))}
+.view{min-height:calc(100svh - var(--nav));padding-block:clamp(28px,5vw,56px);animation:in .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes in{from{transform:translateY(14px)}to{transform:none}}
+.view-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 32px;margin-bottom:clamp(22px,3.5vw,40px)}
+.view-head > div:first-child{display:grid;gap:12px}
+
+/* ---------- Home ---------- */
+#home{position:relative;padding:0;display:grid;isolation:isolate;overflow:hidden}
+.home-bg{position:absolute;inset:0;z-index:-2;background:url(img/night.jpg) 70% 60%/cover no-repeat;animation:drift 26s ease-in-out infinite alternate}
+#home::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(12,11,17,.95) 0%,rgba(12,11,17,.7) 45%,rgba(12,11,17,.15) 80%),linear-gradient(0deg,rgba(12,11,17,.95) 0%,rgba(12,11,17,0) 45%)}
+@keyframes drift{from{transform:scale(1.03)}to{transform:scale(1.1) translate(-1.5%,-1%)}}
+.home-in{display:grid;align-content:space-between;gap:28px;padding-block:clamp(28px,5vh,64px) clamp(20px,3vh,36px)}
+.addr{display:inline-flex;align-items:center;gap:10px;width:fit-content;padding:8px 14px;border:1px solid var(--line-2);border-radius:999px;background:rgba(12,11,17,.5);font:500 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--amber);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(242,169,59,.6)}70%{box-shadow:0 0 0 9px rgba(242,169,59,0)}100%{box-shadow:0 0 0 0 rgba(242,169,59,0)}}
+.h1{font:900 clamp(56px,min(10vw,14vh),140px)/.82 var(--f-display);text-transform:uppercase}
+.h1 span{display:block;font:italic 400 .58em/1.05 var(--f-serif);text-transform:none;color:var(--gold)}
+.hero-copy{display:grid;gap:18px;max-width:700px}
+.hero-copy .sub{color:#D3CBBE}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+.price-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.pt{position:relative;display:grid;gap:6px;padding:18px 18px 16px;border:1px solid var(--line-2);border-radius:14px;background:rgba(20,18,28,.78);backdrop-filter:blur(10px);text-align:left;cursor:pointer;transition:transform .2s,border-color .2s,background .2s;overflow:hidden}
+.pt:hover{transform:translateY(-4px);border-color:var(--gold);background:rgba(28,25,38,.9)}
+.pt small{font:500 10.5px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.pt b{font:900 40px/.95 var(--f-display)}
+.pt span{font-weight:600;font-size:15px}
+.pt i{font-style:normal;position:absolute;right:16px;top:16px;color:var(--gold);transition:transform .2s}
+.pt:hover i{transform:translate(3px,-3px)}
+.pt.hot{border-color:rgba(217,178,90,.6)}
+.pt.hot::after{content:"Best value";position:absolute;right:14px;bottom:14px;font:500 9.5px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:#17120A;padding:4px 7px;border-radius:3px}
+@media (max-width:900px){.price-tiles{grid-template-columns:1fr 1fr}.pt.hot::after{display:none}}
+@media (max-width:380px){.pt b{font-size:32px}}
+
+/* ---------- Spaces ---------- */
+.spaces{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(18px,3vw,36px);align-items:stretch}
+.plan{border:1px solid var(--line);border-radius:18px;background:radial-gradient(80% 70% at 50% 100%,rgba(122,104,255,.14),transparent 70%),var(--ink-2);padding:clamp(16px,2.5vw,26px);display:grid;gap:14px;align-content:start}
+.plan svg{width:100%;height:auto;display:block}
+.zone{cursor:pointer}
+.zone rect{fill:rgba(239,232,220,.04);stroke:rgba(239,232,220,.28);stroke-width:1.5;transition:fill .25s,stroke .25s}
+.zone text{fill:var(--mute);font:800 22px var(--f-display);letter-spacing:.06em;text-transform:uppercase;transition:fill .25s;pointer-events:none}
+.zone .pz{font:500 13px var(--f-mono);letter-spacing:.04em}
+.zone:hover rect{fill:rgba(217,178,90,.1);stroke:var(--gold-2)}
+.zone.on rect{fill:rgba(217,178,90,.22);stroke:var(--gold);stroke-width:2.5}
+.zone.on text{fill:var(--bone)}
+.zone:focus{outline:none}
+.zone:focus-visible rect{stroke:var(--gold-2);stroke-width:3}
+.bld{fill:none;stroke:rgba(239,232,220,.22);stroke-width:1.2}
+.bld-t{fill:var(--dim);font:500 10px var(--f-mono);letter-spacing:.14em}
+.seg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--ink)}
+.seg button{border:0;background:none;padding:10px 6px;border-radius:9px;font-size:13px;font-weight:600;color:var(--mute);cursor:pointer;transition:.2s}
+.seg button[aria-pressed="true"]{background:var(--bone);color:var(--ink)}
+.plan .hint{font-size:13px;color:var(--dim);text-align:center}
+
+.detail{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--ink-2);display:grid;grid-template-rows:minmax(240px,1fr) auto;min-height:520px}
+.detail .shot{position:relative;overflow:hidden}
+.detail .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s,transform 6s ease-out}
+.detail .shot img.fade{opacity:0}
+.detail:hover .shot img{transform:scale(1.05)}
+.detail .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--ink-2) 0%,transparent 55%)}
+.badge{position:absolute;z-index:2;left:18px;top:18px;font:500 10.5px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;background:rgba(12,11,17,.7);backdrop-filter:blur(6px);border:1px solid var(--line-2);padding:7px 10px;border-radius:999px}
+.d-body{padding:0 clamp(18px,2.6vw,28px) clamp(18px,2.6vw,28px);display:grid;gap:14px;margin-top:-56px;position:relative;z-index:1}
+.d-top{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.d-top h3{font:900 clamp(38px,4.6vw,56px)/.9 var(--f-display);text-transform:uppercase}
+.d-price{text-align:right}
+.d-price b{display:block;font:900 clamp(38px,4.6vw,56px)/.9 var(--f-display);color:var(--gold)}
+.d-price small{font:500 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.d-body p{color:var(--mute);max-width:58ch}
+.feats{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.feats li{font-size:13px;padding:6px 11px;border:1px solid var(--line-2);border-radius:999px;color:#D3CBBE}
+@media (max-width:900px){.spaces{grid-template-columns:1fr}.detail{min-height:0;grid-template-rows:280px auto}.d-price{text-align:left}}
+
+/* ---------- Events ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line-2);background:none;border-radius:999px;padding:9px 15px;font-size:14px;font-weight:600;color:var(--mute);cursor:pointer;transition:.18s}
+.chip:hover{color:var(--bone);border-color:var(--bone)}
+.chip[aria-pressed="true"]{background:var(--bone);border-color:var(--bone);color:var(--ink)}
+.ev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.ev{position:relative;display:grid;align-content:space-between;gap:26px;min-height:168px;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--ink-2);text-align:left;cursor:pointer;overflow:hidden;transition:border-color .25s,transform .25s}
+.ev::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 100% 0%,var(--glow,rgba(122,104,255,.28)),transparent 60%);opacity:0;transition:opacity .35s}
+.ev:hover{border-color:var(--gold);transform:translateY(-3px)}
+.ev:hover::before{opacity:1}
+.ev > *{position:relative}
+.ev small{font:500 10.5px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.ev h3{font:800 28px/.95 var(--f-display);text-transform:uppercase}
+.ev .go{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;color:var(--mute)}
+.ev .go b{color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px;transition:transform .2s;white-space:nowrap}
+.ev:hover .go b{transform:translateX(3px)}
+.ev.in{animation:pop .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pop{from{transform:scale(.96)}to{transform:none}}
+
+/* ---------- Book ---------- */
+.book{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(18px,3vw,36px);align-items:start}
+.card{border:1px solid var(--line);border-radius:18px;background:var(--ink-2);padding:clamp(18px,3vw,32px)}
+.prog{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:24px}
+.prog button{border:0;background:none;padding:0;text-align:left;cursor:pointer;display:grid;gap:8px;color:var(--dim)}
+.prog button:disabled{cursor:default}
+.prog span{display:block;height:4px;border-radius:4px;background:var(--line);position:relative;overflow:hidden}
+.prog span::after{content:"";position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.prog .done span::after,.prog .cur span::after{transform:scaleX(1)}
+.prog .cur,.prog .done{color:var(--bone)}
+.prog small{font:500 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.step{display:grid;gap:18px;animation:in .35s cubic-bezier(.2,.8,.2,1)}
+.step h3{font:800 32px/1 var(--f-display);text-transform:uppercase}
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{position:relative;display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center;padding:10px;border:1px solid var(--line-2);border-radius:14px;background:var(--ink);cursor:pointer;text-align:left;transition:border-color .2s,background .2s}
+.opt img{width:64px;height:64px;border-radius:10px;object-fit:cover}
+.opt b{display:block;font-weight:700}
+.opt small{font:500 13px/1.3 var(--f-mono);color:var(--gold)}
+.opt:hover{border-color:var(--bone)}
+.opt[aria-pressed="true"]{border-color:var(--gold);background:rgba(217,178,90,.1)}
+.opt[aria-pressed="true"]::after{content:"✓";position:absolute;right:12px;top:10px;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#17120A;display:grid;place-items:center;font-size:12px;font-weight:800}
+@media (max-width:560px){.pick{grid-template-columns:1fr}}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f{display:grid;gap:7px;min-width:0}
+.f.full{grid-column:1/-1}
+.f label{font:500 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.f input,.f select,.f textarea{width:100%;background:var(--ink);border:1px solid var(--line-2);border-radius:10px;padding:13px 14px;font-size:16px;outline:none;transition:border-color .2s,box-shadow .2s}
+.f select option{background:var(--ink-2)}
+.f textarea{min-height:96px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,178,90,.15)}
+.f .err{display:none;font-size:13px;color:var(--err)}
+.f.bad input,.f.bad select{border-color:var(--err)}
+.f.bad .err{display:block}
+@media (max-width:560px){.fields{grid-template-columns:1fr}}
+.nav-row{display:flex;justify-content:space-between;gap:10px;margin-top:6px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.sum{position:sticky;top:calc(var(--nav) + 20px);overflow:hidden;padding:0}
+.sum .shot{height:170px;position:relative}
+.sum .shot img{width:100%;height:100%;object-fit:cover}
+.sum .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--ink-2),transparent 70%)}
+.sum-in{padding:0 24px 24px;display:grid;gap:14px;margin-top:-30px;position:relative}
+.sum h3{font:900 34px/.95 var(--f-display);text-transform:uppercase}
+.sum dl{margin:0;display:grid}
+.sum dl div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.sum dt{color:var(--mute);font-size:14px}
+.sum dd{margin:0;font:500 13.5px/1.4 var(--f-mono);text-align:right}
+.sum .tot{display:flex;justify-content:space-between;align-items:baseline}
+.sum .tot span{font:500 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.sum .tot b{font:900 44px/1 var(--f-display);color:var(--gold)}
+.sum p{font-size:13px;color:var(--dim)}
+@media (max-width:900px){.book{grid-template-columns:1fr}.sum{position:static;order:-1}.sum .shot{height:110px}.sum dl{display:none}}
+
+.result{display:grid;gap:20px;justify-items:start}
+.result h3{font:900 clamp(40px,6vw,64px)/.9 var(--f-display);text-transform:uppercase}
+.result h3 em{font:italic 400 .7em var(--f-serif);color:var(--gold);text-transform:none}
+.copybox{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:14px;font:400 12.5px/1.6 var(--f-mono);white-space:pre-wrap;max-height:240px;overflow:auto;color:#D3CBBE}
+.sel{user-select:all;font:500 15px var(--f-mono);padding:8px 12px;border:1px dashed var(--line-2);border-radius:8px;overflow-wrap:anywhere}
+
+/* ---------- Info ---------- */
+.info{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(18px,3vw,36px);align-items:start}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:17px 0;font-weight:600;font-size:16.5px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";flex:none;font:400 22px/1 var(--f-mono);color:var(--gold);transition:transform .25s}
+.acc details[open] summary::after{transform:rotate(45deg)}
+.acc details p{padding:0 0 18px;color:var(--mute);max-width:62ch}
+.contact{display:grid;gap:0;padding:0;overflow:hidden}
+.contact .shot{height:200px}
+.contact .shot img{width:100%;height:100%;object-fit:cover;object-position:50% 70%}
+.c-in{padding:22px 24px 24px;display:grid;gap:4px}
+.c-row{display:grid;gap:5px;padding:13px 0;border-bottom:1px solid var(--line)}
+.c-row:last-of-type{border-bottom:0}
+.c-row small{font:500 10.5px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.c-row .v{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:18px;font-weight:600;overflow-wrap:anywhere;min-width:0}
+.c-row a{text-decoration:none}
+.c-row a:hover{color:var(--gold)}
+.mini{flex:none;background:none;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:500;color:var(--mute);cursor:pointer;text-decoration:none}
+.mini:hover{color:var(--bone);border-color:var(--bone)}
+@media (max-width:900px){.info{grid-template-columns:1fr}}
+
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);z-index:60;background:var(--bone);color:var(--ink);padding:10px 16px;border-radius:999px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:.25s}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<noscript><div style="padding:120px 24px;text-align:center;font:18px/1.6 sans-serif;color:#EFE8DC">Warehouse West works best with JavaScript on. To book, email <b>Warehousewest@icloud.com</b> or call <b>314-578-2910</b>.</div></noscript>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#home" aria-label="Warehouse West home">
+      <span class="mark" aria-hidden="true">WW</span>
+      <span><b>Warehouse West</b><small>Event Collective</small></span>
+    </a>
+    <nav class="tabs" id="tabs" aria-label="Sections">
+      <span class="pill" id="pill" aria-hidden="true"></span>
+      <a href="#home">Home</a>
+      <a href="#spaces">Spaces</a>
+      <a href="#events">Events</a>
+      <a href="#book">Book</a>
+      <a href="#info">Info</a>
+    </nav>
+    <a class="btn btn-gold" href="#book">Book a date →</a>
+  </div>
+</header>
+
+<main>
+  <!-- HOME -->
+  <section class="view" id="home" data-view>
+    <div class="home-bg" role="img" aria-label="Warehouse West at night on Hamilton Avenue"></div>
+    <div class="wrap home-in">
+      <div class="hero-copy">
+        <span class="addr"><span class="dot"></span>1397 Hamilton Ave · St. Louis</span>
+        <h1 class="h1">More than a venue.<span>It's a movement.</span></h1>
+        <p class="sub">A raw, versatile warehouse for parties, showcases, shoots and pop-ups. Pick a space, pick a date, and we'll reply within 24 hours.</p>
+        <div class="row">
+          <a class="btn btn-gold" href="#book">Book a date →</a>
+          <a class="btn btn-ghost" href="#spaces">Explore the spaces</a>
+        </div>
+      </div>
+      <div class="price-tiles" id="homeTiles"></div>
+    </div>
+  </section>
+
+  <!-- SPACES -->
+  <section class="view" id="spaces" data-view hidden>
+    <div class="wrap">
+      <div class="view-head">
+        <div>
+          <span class="eyebrow">The spaces</span>
+          <h2 class="display">Choose your <em>floor.</em></h2>
+        </div>
+        <p class="sub">Tap a space on the building to see it. Rent one side, take the whole floor, or go upstairs for the big nights.</p>
+      </div>
+      <div class="spaces">
+        <div class="plan">
+          <svg viewBox="0 0 520 380" role="group" aria-label="Building diagram">
+            <path class="bld" d="M20 360 V40 H500 V360"/>
+            <path class="bld" d="M10 360 H510"/>
+            <text class="bld-t" x="260" y="28" text-anchor="middle">1397 HAMILTON AVE</text>
+            <text class="bld-t" x="260" y="376" text-anchor="middle">STREET · GARAGE DOORS</text>
+            <g class="zone" data-zone="upstairs" tabindex="0" role="button" aria-label="The Upstairs">
+              <rect x="36" y="56" width="448" height="128" rx="10"/>
+              <text x="260" y="118" text-anchor="middle">The Upstairs</text>
+              <text class="pz" x="260" y="144" text-anchor="middle" data-zp="upstairs"></text>
+            </g>
+            <g class="zone" data-zone="bar" tabindex="0" role="button" aria-label="The Bar Side">
+              <rect x="36" y="200" width="218" height="144" rx="10"/>
+              <text x="145" y="268" text-anchor="middle">Bar Side</text>
+              <text class="pz" x="145" y="294" text-anchor="middle" data-zp="bar"></text>
+            </g>
+            <g class="zone" data-zone="stage" tabindex="0" role="button" aria-label="The Stage Side">
+              <rect x="266" y="200" width="218" height="144" rx="10"/>
+              <text x="375" y="268" text-anchor="middle">Stage Side</text>
+              <text class="pz" x="375" y="294" text-anchor="middle" data-zp="stage"></text>
+            </g>
+          </svg>
+          <div class="seg" id="seg"></div>
+          <p class="hint">Both sides together is the best value.</p>
+        </div>
+        <article class="detail" aria-live="polite">
+          <div class="shot"><span class="badge" id="dBadge"></span><img id="dImg" src="img/floor.jpg" alt=""></div>
+          <div class="d-body">
+            <div class="d-top">
+              <h3 id="dName"></h3>
+              <div class="d-price"><b id="dPrice" class="tab"></b><small id="dUnit"></small></div>
+            </div>
+            <p id="dDesc"></p>
+            <ul class="feats" id="dFeats"></ul>
+            <div class="row"><button class="btn btn-gold" type="button" id="dBook">Book this space →</button></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="view" id="events" data-view hidden>
+    <div class="wrap">
+      <div class="view-head">
+        <div>
+          <span class="eyebrow">Events</span>
+          <h2 class="display">What are you <em>throwing?</em></h2>
+        </div>
+        <div class="chips" id="evFilter"></div>
+      </div>
+      <div class="ev-grid" id="evGrid"></div>
+    </div>
+  </section>
+
+  <!-- BOOK -->
+  <section class="view" id="book" data-view hidden>
+    <div class="wrap">
+      <div class="view-head">
+        <div>
+          <span class="eyebrow">Book</span>
+          <h2 class="display">Three steps. <em>That's it.</em></h2>
+        </div>
+        <p class="sub">Sending a request doesn't charge you. We confirm your date and details within 24 hours.</p>
+      </div>
+
+      <div class="book" id="bookWrap">
+        <form class="card" id="form" novalidate>
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="prog" id="prog">
+            <button type="button" data-goto="1"><span></span><small>1 · Space</small></button>
+            <button type="button" data-goto="2"><span></span><small>2 · Event</small></button>
+            <button type="button" data-goto="3"><span></span><small>3 · You</small></button>
+          </div>
+
+          <div class="step" data-step="1">
+            <h3>Pick your space</h3>
+            <div class="pick" id="pick"></div>
+            <div class="nav-row"><span></span><button class="btn btn-gold" type="button" data-next>Next →</button></div>
+          </div>
+
+          <div class="step" data-step="2" hidden>
+            <h3>Tell us about it</h3>
+            <div class="fields">
+              <div class="f full"><label for="fType">Event type</label><select id="fType"></select></div>
+              <div class="f"><label for="fDate">Date</label><input type="date" id="fDate" required><span class="err">Pick a date from today on.</span></div>
+              <div class="f"><label for="fTime">Start time</label><select id="fTime"></select></div>
+              <div class="f"><label for="fGuests">Expected guests</label><select id="fGuests"><option>Under 25</option><option selected>25 – 50</option><option>50 – 100</option><option>100 – 150</option><option>150+</option></select></div>
+              <div class="f"><label for="fFlex">Date flexible?</label><select id="fFlex"><option>No, this date only</option><option>Yes, within a week or two</option></select></div>
+            </div>
+            <div class="nav-row"><button class="btn btn-ghost" type="button" data-back>← Back</button><button class="btn btn-gold" type="button" data-next>Next →</button></div>
+          </div>
+
+          <div class="step" data-step="3" hidden>
+            <h3>How do we reach you?</h3>
+            <div class="fields">
+              <div class="f"><label for="fName">Full name</label><input id="fName" autocomplete="name" placeholder="Jordan Ellis"><span class="err">Add your name.</span></div>
+              <div class="f"><label for="fPhone">Phone</label><input id="fPhone" type="tel" autocomplete="tel" placeholder="(314) 555-0123"><span class="err">Add a 10-digit phone number.</span></div>
+              <div class="f full"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" placeholder="you@email.com"><span class="err">Enter an email like name@email.com.</span></div>
+              <div class="f full"><label for="fMsg">Anything else? (optional)</label><textarea id="fMsg" placeholder="The vibe, vendors you're bringing, questions for us."></textarea></div>
+            </div>
+            <div class="nav-row"><button class="btn btn-ghost" type="button" data-back>← Back</button><button class="btn btn-gold" type="submit" id="send">Send request →</button></div>
+          </div>
+        </form>
+
+        <aside class="card sum" aria-label="Your request">
+          <div class="shot"><img id="sImg" src="img/floor.jpg" alt=""></div>
+          <div class="sum-in">
+            <span class="eyebrow">Your request</span>
+            <h3 id="sSpace"></h3>
+            <dl>
+              <div><dt>Event</dt><dd id="sType">—</dd></div>
+              <div><dt>Date</dt><dd id="sDate">—</dd></div>
+              <div><dt>Guests</dt><dd id="sGuests">—</dd></div>
+            </dl>
+            <div class="tot"><span>Space rate</span><b id="sPrice" class="tab"></b></div>
+            <p>No payment now. We confirm availability and details first.</p>
+          </div>
+        </aside>
+      </div>
+
+      <div class="card result" id="done" hidden>
+        <span class="eyebrow">Request sent</span>
+        <h3>You're on <em>our radar.</em></h3>
+        <p class="sub" id="doneMsg"></p>
+        <button class="btn btn-ghost" type="button" id="again">Send another request</button>
+      </div>
+
+      <div class="card result" id="fallback" hidden>
+        <span class="eyebrow">One more step</span>
+        <h3>Send it <em>by email.</em></h3>
+        <p class="sub">Your request couldn't reach our inbox automatically. Copy it and email it to us. Nothing was lost.</p>
+        <div class="row"><span class="sel" id="fbTo"></span><button class="mini" type="button" data-copy="fbTo">Copy address</button></div>
+        <div class="copybox" id="fbBody"></div>
+        <div class="row">
+          <button class="btn btn-gold" type="button" data-copy="fbBody">Copy request</button>
+          <a class="btn btn-ghost" id="fbMail" href="#">Open email app</a>
+          <button class="btn btn-ghost" type="button" id="fbBack">Back</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO -->
+  <section class="view" id="info" data-view hidden>
+    <div class="wrap">
+      <div class="view-head">
+        <div>
+          <span class="eyebrow">Info</span>
+          <h2 class="display">Before you <em>book.</em></h2>
+        </div>
+        <div class="chips" id="infoTabs">
+          <button class="chip" type="button" data-info="faq" aria-pressed="true">FAQ</button>
+          <button class="chip" type="button" data-info="rules" aria-pressed="false">House rules</button>
+        </div>
+      </div>
+      <div class="info">
+        <div>
+          <div class="acc" data-panel="faq">
+            <details open><summary>What's the difference between the spaces?</summary><p>The ground floor splits into two sides: the Bar Side with the stone bar and café seating, and the Stage Side with the stage riser, booths and garage doors. Book one side, both sides together, or the Upstairs for major parties and events.</p></details>
+            <details><summary>How do I book?</summary><p>Send a request from the Book tab. We reply within 24 hours to confirm your date and details. Nothing is charged when you send a request.</p></details>
+            <details><summary>Can I bring my own caterer, DJ or decorator?</summary><p>Yes. Food vendors must be licensed and insured, and every vendor needs venue approval ahead of time.</p></details>
+            <details><summary>Can I tour the space first?</summary><p>Yes. Mention it in your request or call us and we'll set up a time.</p></details>
+            <details><summary>What's included?</summary><p>Tables and chairs, house lighting and private use of the space you book.</p></details>
+          </div>
+          <div class="acc" data-panel="rules" hidden>
+            <details open><summary>Responsibility &amp; damages</summary><p>Hosts and promoters are responsible for their guests and liable for any damage to the property, equipment or facility during the rental.</p></details>
+            <details><summary>Security</summary><p>Professional security is required for most events. All security must be provided or approved by Warehouse West management before the event.</p></details>
+            <details><summary>Food &amp; catering</summary><p>All food and catering vendors must be licensed, insured and approved by the venue.</p></details>
+            <details><summary>Prohibited</summary><p>No unapproved pyrotechnics (including cold sparks), fog machines, open flames or illegal substances. Violations end the event immediately without a refund.</p></details>
+            <details><summary>Insurance</summary><p>Some events may need a Certificate of Insurance naming Warehouse West Event Collective as an additional insured.</p></details>
+          </div>
+        </div>
+        <aside class="card contact">
+          <div class="shot"><img src="img/street.jpg" alt="Guests outside the Warehouse West entrance" loading="lazy"></div>
+          <div class="c-in">
+            <div class="c-row"><small>Bookings</small><div class="v"><a id="cEmail" href="#"></a><button class="mini" type="button" data-copy="cEmail">Copy</button></div></div>
+            <div class="c-row"><small>Call or text</small><div class="v"><a id="cPhone" href="#"></a></div></div>
+            <div class="c-row"><small>Address</small><div class="v"><span>1397 Hamilton Ave, St. Louis, MO 63112</span><a class="mini" href="https://www.google.com/maps/search/?api=1&query=1397+Hamilton+Ave+St.+Louis+MO+63112" target="_blank" rel="noopener">Directions ↗</a></div></div>
+            <div class="c-row"><small>Instagram</small><div class="v"><a id="cIg" href="#" target="_blank" rel="noopener"></a></div></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<nav class="dock" id="dock" aria-label="Sections">
+  <a href="#home"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Home</a>
+  <a href="#spaces"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>Spaces</a>
+  <a href="#book" class="book"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Book</a>
+  <a href="#events"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg>Events</a>
+  <a href="#info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Info</a>
+</nav>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ======================= SITE SETTINGS =======================
+   Edit prices, space details and contact info here.          */
+const CONFIG = {
+  bookingEmail: "Warehousewest@icloud.com",
+  // FormSubmit delivers each request to the inbox above. The first request
+  // sends a one-time "Activate" email to that inbox. Click it once.
+  endpoint: "https://formsubmit.co/ajax/Warehousewest@icloud.com",
+  phone: "314-578-2910",
+  instagram: "warehouseweststl"
+};
+const SPACES = [
+  { id:"bar", name:"The Bar Side", short:"One side", price:"$500", unit:"per event", img:"img/bar.jpg", badge:"Ground floor · left",
+    desc:"The stone-faced bar, mirrored back bar, high-tops and café seating. Made for birthdays, mixers, showers and listening parties.",
+    feats:["Stone-faced bar","High-top stools","Café tables","Color wash lighting"] },
+  { id:"stage", name:"The Stage Side", short:"One side", price:"$500", unit:"per event", img:"img/floor.jpg", badge:"Ground floor · right",
+    desc:"The open floor with the stage riser, lounge booths, string lights and roll-up garage doors. Made for shows, comedy, shoots and pop-ups.",
+    feats:["Stage riser","Lounge booths","String lights","Projector","Garage doors"] },
+  { id:"both", name:"Both Sides", short:"Full floor", price:"$750–$800", unit:"per event", img:"img/floor.jpg", badge:"Entire ground floor", hot:true,
+    desc:"The whole ground floor, bar side and stage side together. The best value when your guest list or your vision needs room to move.",
+    feats:["Bar + stage","Full open floor","Garage doors","Best value"] },
+  { id:"upstairs", name:"The Upstairs", short:"Major events", price:"$1,000", unit:"per event", img:"img/night.jpg", badge:"Upper level",
+    desc:"The space above, reserved for major parties and big productions. Tell us what you're planning and we'll walk you through it.",
+    feats:["Major parties","Large productions","Private level"] }
+];
+const GROUPS = { all:"All", celebrate:"Celebrate", perform:"Perform", create:"Create", gather:"Gather" };
+const EVENTS = [
+  ["Birthday party","celebrate","bar"],["Baby or bridal shower","celebrate","bar"],["Repast / celebration of life","celebrate","bar"],
+  ["Wedding reception","celebrate","both"],["Family reunion","celebrate","both"],
+  ["Live music / showcase","perform","stage"],["Comedy night","perform","stage"],["Listening party","perform","bar"],
+  ["Photo / video shoot","create","stage"],["Podcast / content","create","bar"],["Puff & paint","create","stage"],
+  ["Corporate / offsite","gather","both"],["Networking mixer","gather","bar"],["Pop-up / brand activation","gather","stage"],
+  ["Wellness / yoga","gather","stage"],["Major party / gala","gather","upstairs"],["Something else","gather","both"]
+].map(([name,g,space]) => ({ name, g, space }));
+
+/* ======================= helpers ======================= */
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const sp = id => SPACES.find(s => s.id === id);
+const pad = n => String(n).padStart(2,"0");
+const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const today = new Date(); today.setHours(0,0,0,0);
+const tl = h => { const b = Math.floor(h), m = h % 1 ? "30" : "00"; return `${b % 12 || 12}:${m} ${b >= 12 && b < 24 ? "PM" : "AM"}`; };
+const longDate = v => { if (!v) return "—"; const [y,m,d] = v.split("-").map(Number); return new Date(y,m-1,d).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"}); };
+function toast(t){ const el = $("#toast"); el.textContent = t; el.classList.add("on"); clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove("on"), 2000); }
+async function copy(t){ try { await navigator.clipboard.writeText(t); toast("Copied"); } catch(e){ toast("Select the text to copy it"); } }
+
+const S = { space:"both", step:1 };
+
+/* ======================= router ======================= */
+const VIEWS = ["home","spaces","events","book","info"];
+function show(v){
+  if (!VIEWS.includes(v)) v = "home";
+  $$("[data-view]").forEach(s => s.hidden = s.id !== v);
+  $$(".tabs a, .dock a").forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + v ? "page" : "false"));
+  movePill(); window.scrollTo(0, 0);
+}
+function movePill(){
+  const a = $('.tabs a[aria-current="page"]'), pill = $("#pill");
+  if (!a || !a.offsetWidth) return;
+  pill.style.left = a.offsetLeft + "px"; pill.style.width = a.offsetWidth + "px";
+}
+addEventListener("hashchange", () => show(location.hash.slice(1)));
+addEventListener("resize", movePill);
+function go(v){ if (location.hash === "#" + v) show(v); else location.hash = v; }
+
+/* ======================= home ======================= */
+$("#homeTiles").innerHTML = SPACES.map(s => `
+  <button class="pt${s.hot ? " hot" : ""}" type="button" data-pick="${s.id}">
+    <small>${s.short}</small><b class="tab">${s.price}</b><span>${s.name}</span><i aria-hidden="true">↗</i>
+  </button>`).join("");
+
+/* ======================= spaces ======================= */
+$$("[data-zp]").forEach(t => t.textContent = sp(t.dataset.zp).price);
+$("#seg").innerHTML = SPACES.map(s => `<button type="button" data-zone="${s.id}">${s.id === "both" ? "Both" : s.name.replace("The ","").replace(" Side","")}</button>`).join("");
+let detailSpace = null;
+function setZone(id){
+  const s = sp(id);
+  $$(".zone").forEach(z => z.classList.toggle("on", id === "both" ? ["bar","stage"].includes(z.dataset.zone) : z.dataset.zone === id));
+  $$("#seg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.zone === id));
+  if (detailSpace === id) return; detailSpace = id;
+  const img = $("#dImg"); img.classList.add("fade");
+  setTimeout(() => { img.src = s.img; img.alt = s.name; img.classList.remove("fade"); }, 180);
+  $("#dBadge").textContent = s.badge; $("#dName").textContent = s.name;
+  $("#dPrice").textContent = s.price; $("#dUnit").textContent = s.unit;
+  $("#dDesc").textContent = s.desc;
+  $("#dFeats").innerHTML = s.feats.map(f => `<li>${f}</li>`).join("");
+}
+$$(".zone").forEach(z => z.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); setZone(z.dataset.zone); } }));
+$("#dBook").onclick = () => pickSpace(detailSpace, true);
+
+/* ======================= events ======================= */
+let evGroup = "all";
+const glow = { bar:"rgba(217,178,90,.28)", stage:"rgba(122,104,255,.32)", both:"rgba(242,169,59,.26)", upstairs:"rgba(169,157,255,.3)" };
+function renderEvents(){
+  $("#evFilter").innerHTML = Object.entries(GROUPS).map(([k,v]) => `<button class="chip" type="button" data-group="${k}" aria-pressed="${k === evGroup}">${v}</button>`).join("");
+  $("#evGrid").innerHTML = EVENTS.filter(e => evGroup === "all" || e.g === evGroup).map((e, i) => `
+    <button class="ev in" type="button" data-event="${e.name}" style="--glow:${glow[e.space]};animation-delay:${i*25}ms">
+      <small>${GROUPS[e.g]}</small>
+      <h3>${e.name}</h3>
+      <span class="go"><span>${sp(e.space).name} · ${sp(e.space).price}</span><b>Book →</b></span>
+    </button>`).join("");
+}
+
+/* ======================= booking ======================= */
+$("#fType").innerHTML = EVENTS.map(e => `<option>${e.name}</option>`).join("");
+const times = []; for (let h = 9; h <= 22; h += .5) times.push(`<option value="${h}"${h === 19 ? " selected" : ""}>${tl(h)}</option>`);
+$("#fTime").innerHTML = times.join("");
+$("#fDate").min = iso(today);
+$("#pick").innerHTML = SPACES.map(s => `
+  <button class="opt" type="button" data-space="${s.id}"><img src="${s.img}" alt=""><span><b>${s.name}</b><small>${s.price}</small></span></button>`).join("");
+
+function pickSpace(id, jump){ S.space = id; syncSum(); if (jump){ setStep(2); go("book"); } }
+function setStep(n){
+  S.step = n;
+  $$("[data-step]").forEach(s => s.hidden = Number(s.dataset.step) !== n);
+  $$("#prog button").forEach((b, i) => { b.className = i + 1 < n ? "done" : i + 1 === n ? "cur" : ""; b.disabled = i + 1 > n; });
+}
+function syncSum(){
+  const s = sp(S.space);
+  $$("#pick .opt").forEach(o => o.setAttribute("aria-pressed", o.dataset.space === S.space));
+  $("#sSpace").textContent = s.name; $("#sPrice").textContent = s.price; $("#sImg").src = s.img;
+  $("#sType").textContent = $("#fType").value;
+  $("#sDate").textContent = $("#fDate").value ? `${longDate($("#fDate").value)}, ${tl(Number($("#fTime").value))}` : "—";
+  $("#sGuests").textContent = $("#fGuests").value;
+}
+["#fType","#fDate","#fTime","#fGuests"].forEach(s => $(s).addEventListener("change", syncSum));
+
+function check(sel, ok){ $(sel).closest(".f").classList.toggle("bad", !ok); return ok; }
+function validStep(n){
+  if (n === 2) return check("#fDate", !!$("#fDate").value && $("#fDate").value >= iso(today));
+  if (n === 3){
+    const a = check("#fName", $("#fName").value.trim().length > 1);
+    const b = check("#fPhone", $("#fPhone").value.replace(/\D/g,"").length >= 10);
+    const c = check("#fEmail", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($("#fEmail").value.trim()));
+    return a && b && c;
+  }
+  return true;
+}
+$$(".f input").forEach(i => i.addEventListener("input", () => i.closest(".f").classList.remove("bad")));
+
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-zone],[data-pick],[data-space],[data-group],[data-event],[data-next],[data-back],[data-goto],[data-copy],[data-info]");
+  if (!t) return;
+  if (t.dataset.zone) setZone(t.dataset.zone);
+  else if (t.dataset.pick) pickSpace(t.dataset.pick, true);
+  else if (t.dataset.space) pickSpace(t.dataset.space);
+  else if (t.dataset.group){ evGroup = t.dataset.group; renderEvents(); }
+  else if (t.dataset.event){ const ev = EVENTS.find(x => x.name === t.dataset.event); $("#fType").value = ev.name; pickSpace(ev.space, true); }
+  else if ("next" in t.dataset){ if (validStep(S.step)) setStep(S.step + 1); }
+  else if ("back" in t.dataset) setStep(S.step - 1);
+  else if (t.dataset.goto && !t.disabled) setStep(Number(t.dataset.goto));
+  else if (t.dataset.copy) copy($("#" + t.dataset.copy).textContent);
+  else if (t.dataset.info){
+    $$("#infoTabs .chip").forEach(c => c.setAttribute("aria-pressed", c === t));
+    $$("[data-panel]").forEach(p => p.hidden = p.dataset.panel !== t.dataset.info);
+  }
+});
+
+$("#form").addEventListener("submit", async e => {
+  e.preventDefault();
+  if (S.step !== 3) { if (validStep(S.step)) setStep(S.step + 1); return; }
+  if ($("[name=_honey]").value) return;
+  if (!validStep(3)) { toast("Check the highlighted fields"); return; }
+  const s = sp(S.space);
+  const data = {
+    "Name": $("#fName").value.trim(),
+    "Phone": $("#fPhone").value.trim(),
+    "Email": $("#fEmail").value.trim(),
+    "Space": `${s.name} (${s.price})`,
+    "Event type": $("#fType").value,
+    "Date": longDate($("#fDate").value),
+    "Start time": tl(Number($("#fTime").value)),
+    "Guests": $("#fGuests").value,
+    "Date flexible": $("#fFlex").value,
+    "Message": $("#fMsg").value.trim() || "—"
+  };
+  const subject = `Booking request: ${data["Event type"]} · ${s.name} · ${data.Date}`;
+  const text = Object.entries(data).map(([k,v]) => `${k}: ${v}`).join("\n");
+  const btn = $("#send"); btn.disabled = true; btn.textContent = "Sending…";
+  let ok = false;
+  try {
+    const c = new AbortController(); const tm = setTimeout(() => c.abort(), 12000);
+    const r = await fetch(CONFIG.endpoint, { method:"POST", headers:{ "Content-Type":"application/json", Accept:"application/json" },
+      body: JSON.stringify({ ...data, _subject: subject, _replyto: data.Email, _template:"table", _captcha:"false" }), signal: c.signal });
+    clearTimeout(tm);
+    const j = await r.json().catch(() => ({}));
+    ok = r.ok && (j.success === true || j.success === "true");
+  } catch(err) {}
+  btn.disabled = false; btn.textContent = "Send request →";
+  $("#bookWrap").hidden = true;
+  if (ok){
+    $("#doneMsg").textContent = `Thanks, ${data.Name.split(" ")[0]}. Your request for ${s.name} on ${data.Date} is in our inbox. We'll reply to ${data.Email} within 24 hours.`;
+    $("#done").hidden = false;
+  } else {
+    $("#fbBody").textContent = `Subject: ${subject}\n\n${text}`;
+    $("#fbMail").href = `mailto:${CONFIG.bookingEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+    $("#fallback").hidden = false;
+  }
+  scrollTo(0, 0);
+});
+$("#again").onclick = () => { $("#done").hidden = true; $("#bookWrap").hidden = false; $("#form").reset(); setStep(1); syncSum(); };
+$("#fbBack").onclick = () => { $("#fallback").hidden = true; $("#bookWrap").hidden = false; };
+
+/* ======================= contact + boot ======================= */
+$("#cEmail").textContent = CONFIG.bookingEmail; $("#cEmail").href = "mailto:" + CONFIG.bookingEmail;
+$("#cPhone").textContent = CONFIG.phone; $("#cPhone").href = "tel:" + CONFIG.phone.replace(/\D/g,"");
+$("#cIg").textContent = "@" + CONFIG.instagram; $("#cIg").href = "https://instagram.com/" + CONFIG.instagram;
+$("#fbTo").textContent = CONFIG.bookingEmail;
+
+setZone("both");
+renderEvents();
+setStep(1);
+syncSum();
+show(location.hash.slice(1) || "home");
+document.fonts && document.fonts.ready.then(movePill);
+</script>
+</body>
+</html>
