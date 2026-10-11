@@ -543,6 +543,7 @@ main{padding-top:calc(var(--nav) + env(safe-area-inset-top,0px))}
    Edit prices, space details and contact info here.          */
 const CONFIG = {
   bookingEmail: "Warehousewest@icloud.com",
+  siteUrl: "https://knr315.github.io/warehouse-west-site/",
   // FormSubmit delivers each request to the inbox above. The first request
   // sends a one-time "Activate" email to that inbox. Click it once.
   endpoint: "https://formsubmit.co/ajax/Warehousewest@icloud.com",
@@ -727,6 +728,7 @@ $("#form").addEventListener("submit", async e => {
   if (!validStep(3)) { $(".f.bad input").focus(); toast("Check the highlighted fields"); return; }
   const s = sp(S.space);
   const data = {
+    "Website": CONFIG.siteUrl,
     "Name": $("#fName").value.trim(),
     "Phone": $("#fPhone").value.trim(),
     "Email": $("#fEmail").value.trim(),

@@ -35,7 +35,7 @@ Find `SITE SETTINGS` near the bottom of `index.html`. `SPACES` contains rates, d
 
 ## Booking delivery
 
-The three-step form sends requests to **Warehousewest@icloud.com** through **FormSubmit**. Contact fields and date are validated before sending. If sending fails or times out, the request remains available on the page to copy or open in an email app. Navigation to another space restores the form after a submission result.
+The three-step form sends requests to **Warehousewest@icloud.com** through **FormSubmit**. Each notification includes a **Website** field with the official live URL (`CONFIG.siteUrl`); the copy/email fallback includes the same link. Contact fields and date are validated before sending. If sending fails or times out, the request remains available on the page to copy or open in an email app. Navigation to another space restores the form after a submission result.
 
 The inbox owner must click FormSubmit's one-time **Activate Form** email on the first live submission. A successful API response means the service accepted the request; it does not prove the email arrived. Confirm activation and receipt with a real booking test before relying on delivery. Automated verification must mock the endpoint and never send customer or test data to the live inbox.
 
@@ -45,6 +45,6 @@ Booking requests are not stored in this repository or a site database. FormSubmi
 
 Netlify and Cloudflare Pages can serve `_site/` without a framework build. Run `python3 scripts/build-site.py` as the build command and use `_site` as the publish directory. `_headers` adds security and caching headers on those hosts; GitHub Pages ignores it.
 
-Before changing the public hostname or path, update canonical, `og:url`, social image URLs and structured data in `index.html`, plus the `<base>` path in `404.html` (use `/` for a root-domain deployment). For a GitHub Pages custom domain, configure the domain in Pages settings, follow GitHub's DNS instructions and add `CNAME` to the repository root. The staging script includes it when present.
+Before changing the public hostname or path, update `CONFIG.siteUrl` (the booking email link), canonical, `og:url`, social image URLs and structured data in `index.html`, plus the `<base>` path in `404.html` (use `/` for a root-domain deployment). For a GitHub Pages custom domain, configure the domain in Pages settings, follow GitHub's DNS instructions and add `CNAME` to the repository root. The staging script includes it when present.
 
 See [AUDIT.md](AUDIT.md) for the launch review and verification limits.
