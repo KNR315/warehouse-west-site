@@ -27,6 +27,8 @@ Open `http://localhost:8000/`. Check Home, Spaces, Events, Book and Info at desk
 
 ## Edit venue details
 
+**Venue phone:** 314-276-2959 (call or text). Keep `CONFIG.phone`, structured-data `telephone`, and the JavaScript-disabled fallback in `index.html` aligned with this number.
+
 Find `SITE SETTINGS` near the bottom of `index.html`. `SPACES` contains rates, descriptions and features. `CONFIG` contains the booking inbox, delivery endpoint, phone and Instagram. Update both `bookingEmail` and `endpoint` when changing the inbox. Keep head metadata, structured data, visible address and FAQ text consistent with changed venue details.
 
 ## Booking delivery
