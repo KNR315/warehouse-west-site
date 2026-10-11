@@ -2,13 +2,15 @@
 
 Static venue website for Warehouse West, 1397 Hamilton Ave, St. Louis. HTML, CSS and JavaScript live in `index.html`; images, fonts and app icons are self-hosted. No framework, database or package installation is required.
 
-**Publication URL:** https://knr315.github.io/warehouse-west-site/ (available after Pages deployment succeeds).
+**Live website:** [WarehouseWest — Official Event Collective Website](https://knr315.github.io/warehouse-west-site/)
+
+**Unique site address:** `https://knr315.github.io/warehouse-west-site/`. This project-specific GitHub Pages URL is the current public address. A standalone custom domain requires domain ownership and DNS configuration before it can replace this address.
 
 ## Publish on GitHub Pages
 
 1. Open [Settings → Pages](https://github.com/KNR315/warehouse-west-site/settings/pages).
 2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. Open [Actions → Validate and publish website](https://github.com/KNR315/warehouse-west-site/actions/workflows/pages.yml), select **Run workflow**, and run it on `main`. Future pushes to `main` validate and publish automatically. Pull requests validate without deploying.
+3. Open [Actions → WarehouseWest — Validate and publish](https://github.com/KNR315/warehouse-west-site/actions/workflows/pages.yml), select **Run workflow**, and run it on `main`. Future pushes to `main` validate and publish automatically. Pull requests validate without deploying.
 4. Confirm both `validate` and `deploy` are green, then open the publication URL.
 
 The workflow checks HTML field references, local assets, metadata, the app manifest and JavaScript syntax. It stages an explicit list of public site files in `_site/`; README files, scripts and Git metadata are excluded. If `Configure Pages` reports that the site is missing, complete step 2 and rerun the failed workflow.

@@ -1,4 +1,4 @@
-name: Validate and publish website
+name: WarehouseWest — Validate and publish
 
 on:
   push:
@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   validate:
+    name: WarehouseWest website checks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -30,6 +31,7 @@ jobs:
           path: _site
 
   deploy:
+    name: WarehouseWest live website
     if: github.event_name != 'pull_request'
     needs: validate
     runs-on: ubuntu-latest
@@ -45,3 +47,8 @@ jobs:
       - name: Deploy website
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Show WarehouseWest website link
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          printf '## WarehouseWest — Live Website\n\n[Open WarehouseWest](%s)\n' "$PAGE_URL" >> "$GITHUB_STEP_SUMMARY"
