@@ -22,7 +22,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preload" href="img/night.jpg" as="image">
+<link rel="preload" href="img/warehouse-west-brand.webp" as="image" type="image/webp">
 <link rel="preload" href="fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "EventVenue", "name": "Warehouse West Event Collective", "address": {"@type": "PostalAddress", "streetAddress": "1397 Hamilton Ave", "addressLocality": "St. Louis", "addressRegion": "MO", "postalCode": "63112", "addressCountry": "US"}, "telephone": "+1-314-276-2959", "email": "Warehousewest@icloud.com", "priceRange": "$500–$1,000", "url": "https://knr315.github.io/warehouse-west-site/", "image": "https://knr315.github.io/warehouse-west-site/og-image.jpg", "sameAs": ["https://instagram.com/warehouseweststl"]}</script>
 <style>
@@ -108,10 +108,13 @@ main{padding-top:calc(var(--nav) + env(safe-area-inset-top,0px))}
 
 /* ---------- Home ---------- */
 #home{position:relative;padding:0;display:grid;isolation:isolate;overflow:hidden}
-.home-bg{position:absolute;inset:0;z-index:-2;background:url(img/night.jpg) 70% 60%/cover no-repeat;animation:drift 26s ease-in-out infinite alternate}
-#home::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(12,11,17,.95) 0%,rgba(12,11,17,.7) 45%,rgba(12,11,17,.15) 80%),linear-gradient(0deg,rgba(12,11,17,.95) 0%,rgba(12,11,17,0) 45%)}
-@keyframes drift{from{transform:scale(1.03)}to{transform:scale(1.1) translate(-1.5%,-1%)}}
-.home-in{display:grid;align-content:space-between;gap:28px;padding-block:clamp(28px,5vh,64px) clamp(20px,3vh,36px)}
+.home-bg{grid-area:artwork;align-self:center;width:100%;aspect-ratio:1;background:#000 url(img/warehouse-west-brand.webp) center/contain no-repeat;border-radius:18px;overflow:hidden}
+#home::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 85% 25%,rgba(217,178,90,.08),transparent 65%)}
+.home-in{width:100%;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);grid-template-areas:"copy artwork" "tiles tiles";align-items:center;gap:clamp(24px,4vw,48px);padding-block:clamp(28px,5vh,64px) clamp(20px,3vh,36px)}
+.home-in .hero-copy{grid-area:copy;min-width:0}
+.home-in .price-tiles{grid-area:tiles}
+.home-in .h1{font-size:clamp(56px,7vw,100px)}
+@media (max-width:760px){.home-in{grid-template-columns:minmax(0,1fr);grid-template-areas:"copy" "artwork" "tiles";gap:28px}.home-bg{max-width:520px;justify-self:center}.home-in .h1{font-size:clamp(56px,11vw,84px)}.addr{font-size:10px;letter-spacing:.08em}}
 .addr{display:inline-flex;align-items:center;gap:10px;width:fit-content;padding:8px 14px;border:1px solid var(--line-2);border-radius:999px;background:rgba(12,11,17,.5);font:500 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--amber);animation:pulse 2.4s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(242,169,59,.6)}70%{box-shadow:0 0 0 9px rgba(242,169,59,0)}100%{box-shadow:0 0 0 0 rgba(242,169,59,0)}}
@@ -275,6 +278,17 @@ main{padding-top:calc(var(--nav) + env(safe-area-inset-top,0px))}
 .toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);z-index:60;background:var(--bone);color:var(--ink);padding:10px 16px;border-radius:999px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:.25s}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
+
+/* Brand artwork stays fully visible, separate from labels and booking copy. */
+.detail.is-artwork{grid-template-rows:auto auto}
+.detail.is-artwork .shot{height:clamp(300px,36vw,440px);padding:48px 18px 18px;background:#000}
+.detail.is-artwork .shot img{position:static;object-fit:contain;transform:none}
+.detail.is-artwork .shot::after,.sum.is-artwork .shot::after{display:none}
+.detail.is-artwork .d-body{margin-top:0;padding-top:22px}
+.sum.is-artwork .shot{height:auto;aspect-ratio:1;background:#000}
+.sum.is-artwork .shot img,.opt img.brand-thumb{object-fit:contain;background:#000}
+.sum.is-artwork .sum-in{margin-top:0;padding-top:22px}
+
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -301,7 +315,6 @@ main{padding-top:calc(var(--nav) + env(safe-area-inset-top,0px))}
 <main>
   <!-- HOME -->
   <section class="view" id="home" data-view>
-    <div class="home-bg" role="img" aria-label="Warehouse West at night on Hamilton Avenue"></div>
     <div class="wrap home-in">
       <div class="hero-copy">
         <span class="addr"><span class="dot"></span>1397 Hamilton Ave · St. Louis</span>
@@ -312,6 +325,7 @@ main{padding-top:calc(var(--nav) + env(safe-area-inset-top,0px))}
           <a class="btn btn-ghost" href="#spaces">Explore the spaces</a>
         </div>
       </div>
+      <div class="home-bg" role="img" aria-label="Warehouse West Event Collective brand artwork"></div>
       <div class="price-tiles" id="homeTiles"></div>
     </div>
   </section>
@@ -545,7 +559,7 @@ const SPACES = [
   { id:"both", name:"Both Sides", short:"Full floor", price:"$750–$800", unit:"per event", img:"img/floor.jpg", badge:"Entire ground floor", hot:true,
     desc:"The whole ground floor, bar side and stage side together. The best value when your guest list or your vision needs room to move.",
     feats:["Bar + stage","Full open floor","Garage doors","Best value"] },
-  { id:"upstairs", name:"The Upstairs", short:"Major events", price:"$1,000", unit:"per event", img:"img/night.jpg", badge:"Upper level",
+  { id:"upstairs", name:"The Upstairs", short:"Major events", price:"$1,000", unit:"per event", img:"img/warehouse-west-brand.webp", artwork:true, imageAlt:"Warehouse West Event Collective brand artwork", badge:"Upper level",
     desc:"The space above, reserved for major parties and big productions. Tell us what you're planning and we'll walk you through it.",
     feats:["Major parties","Large productions","Private level"] }
 ];
@@ -608,7 +622,7 @@ function setZone(id){
   $$("#seg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.zone === id));
   if (detailSpace === id) return; detailSpace = id;
   const img = $("#dImg"); img.classList.add("fade");
-  setTimeout(() => { img.src = s.img; img.alt = s.name; img.classList.remove("fade"); }, 180);
+  setTimeout(() => { img.src = s.img; img.alt = s.imageAlt || s.name; img.closest(".detail").classList.toggle("is-artwork", !!s.artwork); img.classList.remove("fade"); }, 180);
   $("#dBadge").textContent = s.badge; $("#dName").textContent = s.name;
   $("#dPrice").textContent = s.price; $("#dUnit").textContent = s.unit;
   $("#dDesc").textContent = s.desc;
@@ -636,7 +650,7 @@ const times = []; for (let h = 9; h <= 22; h += .5) times.push(`<option value="$
 $("#fTime").innerHTML = times.join("");
 $("#fDate").min = todayISO();
 $("#pick").innerHTML = SPACES.map(s => `
-  <button class="opt" type="button" data-space="${s.id}"><img src="${s.img}" alt=""><span><b>${s.name}</b><small>${s.price}</small></span></button>`).join("");
+  <button class="opt" type="button" data-space="${s.id}"><img src="${s.img}" alt=""${s.artwork ? ' class="brand-thumb"' : ""}><span><b>${s.name}</b><small>${s.price}</small></span></button>`).join("");
 
 function pickSpace(id, jump){
   S.space = id; syncSum();
@@ -653,7 +667,8 @@ function setStep(n){
 function syncSum(){
   const s = sp(S.space);
   $$("#pick .opt").forEach(o => o.setAttribute("aria-pressed", o.dataset.space === S.space));
-  $("#sSpace").textContent = s.name; $("#sPrice").textContent = s.price; $("#sImg").src = s.img;
+  $("#sSpace").textContent = s.name; $("#sPrice").textContent = s.price; $("#sImg").src = s.img; $("#sImg").alt = s.imageAlt || s.name;
+  $("#sImg").closest(".sum").classList.toggle("is-artwork", !!s.artwork);
   $("#sType").textContent = $("#fType").value;
   $("#sDate").textContent = $("#fDate").value ? `${longDate($("#fDate").value)}, ${tl(Number($("#fTime").value))}` : "—";
   $("#sGuests").textContent = $("#fGuests").value;
