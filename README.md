@@ -2,9 +2,9 @@
 
 Static venue website for Warehouse West, 1397 Hamilton Ave, St. Louis. HTML, CSS and JavaScript live in `index.html`; images, fonts and app icons are self-hosted. No framework, database or package installation is required.
 
-**Live website:** [WarehouseWest — Official Event Collective Website](https://knr315.github.io/warehouse-west-site/)
+**Live website:** [WarehouseWest — Official Event Collective Website](https://warehousewestbooking.com/)
 
-**Unique site address:** `https://knr315.github.io/warehouse-west-site/`. This project-specific GitHub Pages URL is the current public address. A standalone custom domain requires domain ownership and DNS configuration before it can replace this address.
+**Custom domain:** `warehousewestbooking.com`. Hosting remains on GitHub Pages; the domain must be registered, configured in Pages settings, and pointed to GitHub before this address works.
 
 ## Publish on GitHub Pages
 
@@ -25,7 +25,7 @@ python3 scripts/build-site.py
 python3 -m http.server 8000 --directory _site
 ```
 
-Open `http://localhost:8000/`. Check Home, Spaces, Events, Book and Info at desktop and phone widths. The 404 page's base path targets the GitHub project URL; test its links there after publication.
+Open `http://localhost:8000/`. Check Home, Spaces, Events, Book and Info at desktop and phone widths. The 404 page's base path targets the custom domain root; test its links there after publication.
 
 ## Edit venue details
 
@@ -46,5 +46,25 @@ Booking requests are not stored in this repository or a site database. FormSubmi
 Netlify and Cloudflare Pages can serve `_site/` without a framework build. Run `python3 scripts/build-site.py` as the build command and use `_site` as the publish directory. `_headers` adds security and caching headers on those hosts; GitHub Pages ignores it.
 
 Before changing the public hostname or path, update `CONFIG.siteUrl` (the booking email link), canonical, `og:url`, social image URLs and structured data in `index.html`, plus the `<base>` path in `404.html` (use `/` for a root-domain deployment). For a GitHub Pages custom domain, configure the domain in Pages settings, follow GitHub's DNS instructions and add `CNAME` to the repository root. The staging script includes it when present.
+
+## Connect warehousewestbooking.com
+
+1. Confirm ownership of the registered domain and access to its DNS settings.
+2. In [Settings → Pages](https://github.com/KNR315/warehouse-west-site/settings/pages), save `warehousewestbooking.com` as the custom domain before pointing DNS to GitHub.
+3. Configure these DNS records at the domain's DNS provider:
+
+| Type | Host | Value |
+| --- | --- | --- |
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | KNR315.github.io |
+
+4. After DNS validation and certificate issuance, enable **Enforce HTTPS** in Pages settings.
+5. Merge the domain changes and confirm the homepage, a missing-page link, and the **Website** field in booking emails use `https://warehousewestbooking.com/`.
+6. Set the repository About website to the GitHub Pages address after the custom domain is active.
+
+This repository publishes through GitHub Actions, so the custom domain is configured in Pages settings; GitHub ignores a repository `CNAME` file for this publishing method. DNS propagation and HTTPS provisioning can take up to 24 hours. Follow [GitHub's custom-domain instructions](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
 See [AUDIT.md](AUDIT.md) for the launch review and verification limits.
